@@ -1,0 +1,21 @@
+server:
+  port: 8081
+zuul:
+  routes:
+    gateway:
+      path: /user/**
+      service-id: gateway
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+spring:
+  application:
+    name: gateway
+  eureka:
+    client:
+      serviceUrl:
+        defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+    instance:
+      preferIpAddress: true
+

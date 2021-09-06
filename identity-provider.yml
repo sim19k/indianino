@@ -1,0 +1,21 @@
+server:
+  port: 8082
+zuul:
+  routes:
+    identity:
+      path: /identity/**
+      service-id: identity-provider
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+spring:
+  application:
+    name: identity-provider
+  eureka:
+    client:
+      serviceUrl:
+        defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+    instance:
+      preferIpAddress: true
+
